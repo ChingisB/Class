@@ -15,8 +15,6 @@ class Unicorn:
         return Unicorn(min(10, self.length + other.length), min(100, self.real + other.real))
     
     def __floordiv__(self, m):
-        if self.real // m == 0:
-            return []
         return [Unicorn(self.length // m, self.real // m) for i in range(m)]
     
     def __str__(self):
