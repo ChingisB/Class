@@ -15,7 +15,7 @@ class FlowingRectangle:
     
     def __sub__(self, other):
         area = self.a * self.b - other.a * other.b
-        if not area:
+        if area <= 0:
             self.a, self.b = 0, 0
         else:
             self.b = ((area * self.prop[1]) / self.prop[0]) ** 0.5
