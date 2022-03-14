@@ -4,7 +4,7 @@ class PearsBasket:
     
     def __floordiv__(self, m):
         if not self.n % m:
-            return [PearsBasket(self.n) // m for i in range(m)]
+            return [PearsBasket(self.n // m) for i in range(m)]
         return [PearsBasket(self.n // m) for i in range(m)] + [PearsBasket(self.n % m)]
     
     def __mod__(self, m):
