@@ -12,6 +12,8 @@ class Dragonfly:
         return Dragonfly(min(30, self.n + other.n))
     
     def __truediv__(self, m):
+        if self.n // m == 0:
+            return []
         return [Dragonfly(self.n // m) for i in range(m)]
     
     def __str__(self):
