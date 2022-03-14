@@ -22,12 +22,13 @@ class PearsBasket:
     def __repr__(self):
         return 'PearsBasket({})'.format(self.n)
 
-pb = PearsBasket(17)
-array = pb // 4
-print(array)
-pb_2 = PearsBasket(13)
-pb_3 = pb + pb_2
+pb_1 = PearsBasket(171)
+array = pb_1 // 3
+print(*array)
+pb_2 = PearsBasket(130)
+print(pb_2 % 19)
+pb_3 = pb_1 + pb_2
 print(pb_3)
 print(pb_3 % 7)
-pb - 2
-print([pb])
+pb_1 - 172
+print(pb_1 // 6)
