@@ -3,7 +3,7 @@ class PearsBasket:
         self.n = n
     
     def __floordiv__(self, m):
-        if not self.n // m:
+        if not self.n % m:
             return [PearsBasket(self.n) // m for i in range(m)]
         return [PearsBasket(self.n // m) for i in range(m)] + [PearsBasket(self.n % m)]
     
