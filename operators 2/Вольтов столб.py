@@ -1,4 +1,5 @@
 class VoltaicPile:
+    next_value = {'Cu': 'cloth', 'cloth': 'Zn', 'Zn': 'cloth'}
     def __init__(self, values):
         self.values = values[:]
         self.i = 0
@@ -13,7 +14,8 @@ class VoltaicPile:
         self.values[key] = value
     
     def append(self, value):
-        self.values.append(value)
+        if value in self.next_value and value == self.next_value(self.value[-1]):
+            self.values.append(value)
     
     def __iter__(self):
         return iter(self.values)
