@@ -14,13 +14,13 @@ class VoltaicPile:
         self.values[key] = value
     
     def append(self, value):
-        if value in self.next_value and value == self.next_value[self.values[-1]]:
-            self.values.append(value)
-        elif value == 'cloth':
+        if self.values[-1] == 'cloth':
             if self.values[-2] == 'Cu' and value == 'Zn':
                 self.values.append(value)
             elif self.values[-2] == 'Zn' and value == 'Cu':
                 self.values.append(value)
+        elif value == self.next_value[self.values[-1]]:
+            self.values.append(value)
     
     def __iter__(self):
         return iter(self.values)
