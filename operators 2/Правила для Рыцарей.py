@@ -53,11 +53,3 @@ class Knight:
     
     def __ge__(self, other):
         return other <= self
-
-
-kn = Knight('Jack', 20, ['sword', 'mace', 'spear'])
-print(kn)
-kn1 = Knight('Jacky', 20, ['sword', 'spear', 'mace'])
-print(kn1)
-print(kn1 <= kn)
-print(kn1 > kn)
