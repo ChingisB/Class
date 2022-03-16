@@ -26,7 +26,7 @@ class Train:
         return len(self.wagons)
     
     def __str__(self):
-        return 'Train {} has {} wagon'.format(self.get_number(), len(self))
+        return 'Train {} has {} wagons'.format(self.get_number(), len(self))
     
     def __getitem__(self, key):
         return self.wagons[key]
