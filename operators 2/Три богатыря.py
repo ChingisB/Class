@@ -55,15 +55,4 @@ class EpicHero:
         return other <= self
     
     def __repr__(self):
-        return "EpicHero(‘{}’, {}, {})".format(self.name, self.wins, sorted(self.weapons))
-
-eh_1 = EpicHero('Ilya', 1, ['mace', 'bow'])
-eh_2 = EpicHero('Dobrynya', 2, ['knife', 'sword'])
-print(eh_2 < eh_1)
-eh_1.add_win()
-print(eh_1 >= eh_2)
-eh_1.del_weapon('bow')
-print(eh_1 > eh_2)
-eh_3 = EpicHero('Ilya', 2, ['lash'])
-print(eh_1 == eh_3)
-print([eh_1, eh_2, eh_3])
+        return "EpicHero('{}', {}, {})".format(self.name, self.wins, sorted(self.weapons))
