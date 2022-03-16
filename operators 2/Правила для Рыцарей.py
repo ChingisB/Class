@@ -4,7 +4,8 @@ class Knight:
     
     def overturn(self):
         self.name = self.name[::-1].capitalize()
-        self.weapons = self.weapons[1:] + [self.weapons[0]]
+        if len(self.weapons) > 1:
+            self.weapons = self.weapons[1:] + [self.weapons[0]]
     
     def add_weight(self, value):
         self.weight = max(0, self.weight + value)
