@@ -14,7 +14,7 @@ class VoltaicPile:
         self.values[key] = value
     
     def append(self, value):
-        if value in self.next_value and value == self.next_value(self.value[-1]):
+        if value in self.next_value and value == self.next_value[self.values[-1]]:
             self.values.append(value)
     
     def __iter__(self):
