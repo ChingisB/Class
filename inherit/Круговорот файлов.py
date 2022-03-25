@@ -27,7 +27,7 @@ class Calculus(Rewrite):
 
 class Align(Rewrite):
     def to_right(self):
-        with open(self.infile) as infile, open(self.outfile) as out:
+        with open(self.infile) as infile, open(self.outfile, 'w') as out:
             data = [i.rstrip() for i in infile.readlines()]
             maximum = max(data, key=len)
             for i in data:
