@@ -34,5 +34,5 @@ class ChainRattle(Sound):
         t = []
         k = len(self.container)
         for i in self.container:
-            t.append(i)
+            t.append("'" + i + "'")
         return "ChainRattle({}, '{}')".format(k, ', '.join(t))
