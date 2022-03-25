@@ -1,21 +1,27 @@
 class Liked:
     def __init__(self, *args):
         self.emojis = [':)', ';)', ':(' ';(', '(', ')']
+        self.acc = (' ')
         self.fill(*args)
     
     def fill(self, *args):
         self.emotions = dict()
         for i in args:
-            for j in self.emojis:
+            flag = False
+            for j in self.acc:
                 if j in i:
-                    self.emotions.setdefault(j, 0)
-                    if j == ')':
-                        self.emotions[j] += i.count(j) - i.count(':)') - i.count(';)')
-                        continue
-                    if j == '(':
-                        self.emotions[j] += i.count(j) - i.count(':(') - i.count(';(')
-                        continue
-                    self.emotions[j] += i.count(j)
+                    flag = True
+                    break
+            if flag:
+                continue
+            for j in self.emojis:
+                t = i.count(j)
+                if j == ')':
+                    t -= i.count(':)') + i.count(';)')
+                if j == '(':
+                    t -= i.count(':(') + i.count(';(')
+                self.emotions.setdefault(j, 0)
+                self.emotions[j] += t
     
     def likes(self):
         ans = {}
@@ -27,30 +33,11 @@ class Liked:
 
 
 class MiMiMi(Liked):
-    def fill(self, *args):
-        self.emotions = dict()
-        self.emojis = [':)', ';)', ':(' ';(', '(', ')']
-        for i in args:
-            if 'cat' not in i and 'kitten' not in i:
-                continue
-            for j in self.emojis:
-                if j in i:
-                    self.emotions.setdefault(j, 0)
-                    if j == ')':
-                        self.emotions[j] += i.count(j) - i.count(':)') - i.count(';)')
-                        continue
-                    if j == '(':
-                        self.emotions[j] += i.count(j) - i.count(':(') - i.count(';(')
-                        continue
-                    self.emotions[j] += i.count(j)
-
     def __init__(self, *args):
         self.emojis = [':)', ';)', ':(' ';(', '(', ')']
+        self.acc = ('cat', 'kitten')
         self.fill(*args)
 
-
-lines = ["What a cute kitten :):)", "I love it:)",
-         "So pretty cat:))))", "See, kitty :)",
-         "What happened to the cat ;("]
-mi = MiMiMi(*lines)
-print(mi.likes())
+lines = ["Hi, ;)!", "How are you))", "Well ;)?"]
+lk = Liked(*lines)
+print(lk.likes())
