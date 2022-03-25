@@ -29,7 +29,7 @@ class Align(Rewrite):
     def to_right(self):
         with open(self.infile) as infile, open(self.outfile, 'w') as out:
             data = []
-            for i in infile.readlines:
+            for i in infile.readlines():
                 for j in i.rstrip().split():
                     data.append(j)
             maximum = max(data, key=len)
