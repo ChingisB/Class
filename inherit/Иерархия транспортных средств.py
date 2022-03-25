@@ -22,23 +22,23 @@ class WaterCargoTransport(WaterTransport):
     pass
 
 
-class Aircarafts(Transport):
+class Aircrafts(Transport):
     pass
 
 
-class Planes(Aircarafts):
+class Planes(Aircrafts):
     pass
 
 
-class Helicopters(Aircarafts):
+class Helicopters(Aircrafts):
     pass
 
 
-class Airships(Aircarafts):
+class Airships(Aircrafts):
     pass
 
 
-class Ballons(Aircarafts):
+class Balloons(Aircrafts):
     pass
 
 
