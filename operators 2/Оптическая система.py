@@ -16,7 +16,7 @@ class OpticSystem:
         return iter(self.arr)
     
     def __delitem__(self, key):
-        del self[key]
+        del self.arr[key]
     
     def __setitem__(self, key, value):
         self.arr[key] = value
