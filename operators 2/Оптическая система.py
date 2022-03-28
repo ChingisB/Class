@@ -1,6 +1,6 @@
 class OpticSystem:
     def __init__(self, arr):
-        self.arr = arr
+        self.arr = arr[:]
     
     def __add__(self, other):
         return OpticSystem(self.arr + other.arr)
