@@ -1,56 +1,42 @@
-from itertools import zip_longest
-
-
 class TwoHandedSawUp:
-    def __init__(self, values):
-        self.values = values
-    
+    def __init__(self, arr):
+        self.arr = arr
+
     def sawing(self):
-        ans = []
-        self.values.sort()
-        len_s = int(len(self.values) / 2)
-        for i, j in zip(self.values[:len_s], self.values[len_s:]):
-            if i is not None:
-                ans.append(i)
-            if j is not None:
-                ans.append(j)
-        self.values = ans
-    
+        self.arr.sort()
+        t1 = self.arr[:int((len(self.arr) - 1) / 2) + 1:]
+        t2 = self.arr[int((len(self.arr) - 1) / 2) + 1:]
+        pos = 0
+        for i in t1:
+            t2.insert(pos, i)
+            pos += 2
+        self.arr = t2
+        return self.arr
+
     def get_list(self):
-        return self.values
+        return self.arr
 
 
 class TwoHandedSawDown:
-    def __init__(self, values):
-        self.values = values
-    
+    def __init__(self, arr):
+        self.arr = arr
+
     def sawing(self):
-        ans = []
-        self.values.sort(reverse=True)
-        len_s = int(len(self.values) / 2)
-        for i, j in zip_longest(self.values[:len_s], self.values[len_s:]):
-            if i is not None:
-                ans.append(i)
-            if j is not None:
-                ans.append(j)
-        self.values = ans
-    
+        self.arr.sort()
+        self.arr = self.arr[::-1]
+        t1 = self.arr[:int((len(self.arr) - 1) / 2) + 1:]
+        t2 = self.arr[int((len(self.arr) - 1) / 2) + 1:]
+        pos = 1
+        for i in t2:
+            t1.insert(pos, i)
+            pos += 2
+        self.arr = t1
+        return self.arr
+
     def get_list(self):
-        return self.values
+        return self.arr
 
 
 def print_hist(array):
     for i in array:
-        print('*' * i)
-
-
-arr = [8, 6, 1, 2, 7, 4, 5, 3, 9]
-thsu = TwoHandedSawUp(arr)
-thsu.sawing()
-print(*thsu.get_list())
-print_hist(thsu.get_list())
-
-thsd = TwoHandedSawDown(arr)
-thsd.sawing()
-print(*thsd.get_list())
-print_hist(thsd.get_list())
+        print('*' * int(i))
